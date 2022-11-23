@@ -1,4 +1,4 @@
-from .platforms.deploy import read_secret
+from ..secrets.deploy import read_secret
 from .base import *
 
 
