@@ -1,0 +1,7 @@
+[run]
+branch = true
+omit = */venv/*, */migrations/*, */admin.py, */apps.py, */commands/*, */forms.py, */tests.py, */test_*.py
+source = ./apps/
+
+[report]
+show_missing = true

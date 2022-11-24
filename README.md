@@ -1,3 +1,7 @@
-# 왜 이 프로젝트를 시작했는가?
-- 기존 Django가 가지고 있던 장점은 
+### Quick Start
+1. `git clone https://github.com/bhnvx/typedjango.git`
+2. If you already installed `Python3`, then `pip install requirements.txt` to your virtual_environment.
+3. Get `.env` to your local file.
+4. `python manage.py runserver`
+
 ---

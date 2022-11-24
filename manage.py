@@ -8,9 +8,9 @@ import platform
 def main():
     """Run administrative tasks."""
     if platform.system().count("Linux") > 0:
-        os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'settings.environments.deploy')
+        os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'backend.settings.environments.deploy')
     else:
-        os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'settings.environments.local')
+        os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'backend.settings.environments.local')
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
