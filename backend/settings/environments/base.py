@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+from datetime import timedelta
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -60,7 +61,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'settings.wsgi.application'
+WSGI_APPLICATION = 'backend.settings.wsgi.application'
 
 
 # Password validation
@@ -82,6 +83,22 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 AUTH_USER_MODEL = "users.Users"
+AUTHENTICATION_BACKENDS = [
+    "users.auth.AuthForAdmin",
+]
+
+# https://www.django-rest-framework.org/api-guide/settings/
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    "DEFAULT_PERMISSION_CLASSES": ["rest_framework.permissions.AllowAny"],
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework.authentication.BasicAuthentication",
+        "backend.apps.users.auth.JWTAuthCookie",
+    ],
+    "TEST_REQUEST_DEFAULT_FORMAT": "json",
+    # "EXCEPTION_HANDLER": "backend.apps.core.handler.exception.custom_exception_handler",
+}
 
 
 # Internationalization
